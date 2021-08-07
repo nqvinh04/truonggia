@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_only_form_view_inherit" model="ir.ui.view">
+        <field name="name">	product.template.product.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='pricing']" position="after">
+                <field name="packing_specifications" string="Packing Specifications"/>
+                <field name="unit_per_barrel" string="Unit Per Barrel"/>
+            </xpath>
+
+            <xpath expr="//div[@name='options']/div[2]" position="after">
+                <div>
+                    <field name="truong_gia"/>
+                    <label for="truong_gia"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="rounding_search_view" model="ir.ui.view">
+        <field name="name">account.cash.rounding.search</field>
+        <field name="model">account.cash.rounding</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+</odoo>
